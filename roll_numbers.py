@@ -12,6 +12,7 @@ INDIVIDUAL_ROLLS = [
 
 # ── Ranges ────────────────────────────────────────────────────
 # Each entry: ("START", "END")  —  both inclusive
+
 # Last 4 digits are the running counter.
 # ("22101105001", "22101108060") → generates 3060 roll numbers
 RANGES = [
