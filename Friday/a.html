@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Personal AI Coding Assistant</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+
+<script src="https://js.puter.com/v2/"></script>
+
+<style>
+body{
+    font-family: monospace;
+    background:#0f172a;
+    color:white;
+    padding:20px;
+}
+
+textarea{
+    width:100%;
+    height:120px;
+    background:#1e293b;
+    color:white;
+    border:none;
+    padding:10px;
+}
+
+button{
+    padding:10px;
+    margin-top:10px;
+    background:#22c55e;
+    border:none;
+}
+
+pre{
+    background:#020617;
+    padding:15px;
+    margin-top:20px;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>AI Coding Assistant</h2>
+
+<textarea id="prompt" placeholder="Ask coding or research questions..."></textarea>
+
+<br>
+
+<button onclick="askAI()">Ask Claude</button>
+
+<pre id="output"></pre>
+
+<script>
+
+async function askAI(){
+
+let prompt = document.getElementById("prompt").value;
+
+document.getElementById("output").innerText="Thinking...";
+
+let response = await puter.ai.chat(prompt,{
+    model:"claude-sonnet-4"
+});
+
+let text = response.message.content[0].text;
+
+document.getElementById("output").innerText=text;
+
+}
+
+</script>
+
+</body>
+</html>
